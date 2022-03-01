@@ -1,0 +1,11 @@
+main {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#forca {
+  height: 500px;
+  background-image: linear-gradient(135deg, yellow, orange);
+}
