@@ -3,8 +3,14 @@ let palavraSorteada;
 let listaDinamica = [];
 let erros = 6;
 let letrasDaPalavra;
-let adicionarPalavra = document.querySelector("#nova-palavra");
 let letraErrada= [];
 
+let palavra = document.getElementById('word');
+let add = document.getElementById('add-word');
+palavra.focus()
 
-desenhaTabuleiro()
+add.addEventListener('click', addWord);
+
+function addWord() {
+  desenhaTabuleiro()
+}
