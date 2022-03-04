@@ -6,13 +6,27 @@ body {
   background-color: #e5e5e5;
 }
 
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.one {
+  margin-top: 8px;
+  margin-left: 12px;
+  height: 20px;
+}
+
 button {
   border: none;
   background: none;
   padding: 0;
 }
 
-.btn, #start, #add {
+.btn, .start {
   width: 317px;
   display: flex;
   flex-direction: column;
@@ -27,13 +41,13 @@ button {
 }
 
 
-#start, #add {
+.start {
   background-color: darkblue;
   color: #e5e5e5;
   border: none;
 }
 
-#add:hover, #start:hover { 
+#start:hover { 
   background: none;
   color: darkblue;
   border: 1px solid darkblue;
