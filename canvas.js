@@ -10,7 +10,7 @@ function desenhaTabuleiro() {
 	pincel.lineTo(75, 200);
 	pincel.lineTo(75, 5);
 	pincel.lineTo(200, 5);
-	pincel.lineTo(200, 40);
+	pincel.lineTo(200, 38);
 	pincel.stroke();
 }
 
@@ -20,7 +20,7 @@ function desenhaCabeça() {
 	pincel.lineWidth = 3;
 
 	pincel.beginPath();
-	pincel.arc(200, 50, 10, 0, 2 * 3.14);
+	pincel.arc(200, 50, 13, 0, 2 * 3.14);
 	pincel.stroke();
 }
 
@@ -30,8 +30,8 @@ function desenhaCorpo() {
 	pincel.lineWidth = 3;
 
 	pincel.beginPath();
-	pincel.moveTo(200, 60);
-	pincel.lineTo(200, 110);
+	pincel.moveTo(200, 63);
+	pincel.lineTo(200, 120);
 	pincel.stroke();
 }
 
@@ -41,8 +41,8 @@ function desenhaBraçoDireito() {
 	pincel.lineWidth = 3;
 	
 	pincel.beginPath();
-	pincel.moveTo(200, 70);
-	pincel.lineTo(180, 90);
+	pincel.moveTo(200, 75);
+	pincel.lineTo(180, 95);
 	pincel.stroke();
 }
 
@@ -52,8 +52,8 @@ function desenhaBraçoEsquerdo() {
 	pincel.lineWidth = 3;
 
 	pincel.beginPath();
-	pincel.moveTo(200, 70);
-	pincel.lineTo(220, 90);
+	pincel.moveTo(200, 75);
+	pincel.lineTo(220, 95);
 	pincel.stroke();
 }
 
@@ -63,8 +63,8 @@ function desenhaPernaDireita() {
 	pincel.lineWidth = 3;
 	
 	pincel.beginPath();
-	pincel.moveTo(200, 110);
-	pincel.lineTo(180, 135);
+	pincel.moveTo(200, 120);
+	pincel.lineTo(180, 148);
 	pincel.stroke();
 }
 
@@ -74,7 +74,7 @@ function desenhaPernaEsquerda() {
 	pincel.lineWidth = 3;
 
 	pincel.beginPath();
-	pincel.moveTo(200, 110);
-	pincel.lineTo(220, 135);
+	pincel.moveTo(200, 120);
+	pincel.lineTo(220, 148);
 	pincel.stroke();
 }
