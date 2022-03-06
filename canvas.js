@@ -5,10 +5,10 @@ function desenhaTabuleiro() {
 
 	pincel.strokeStyle = '#0A3871'
 	pincel.beginPath();
-	pincel.moveTo(0, 200);
+	pincel.moveTo(35, 200);
 	pincel.lineTo(250, 200);
-	pincel.lineTo(75, 200);
-	pincel.lineTo(75, 5);
+	pincel.lineTo(90, 200);
+	pincel.lineTo(90, 5);
 	pincel.lineTo(200, 5);
 	pincel.lineTo(200, 38);
 	pincel.stroke();

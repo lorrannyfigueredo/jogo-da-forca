@@ -15,13 +15,16 @@
       <img src="https://www.alura.com.br/assets/img/oracle-one/oracle.1636535198.svg" alt="logo" class="one">
     </div>
     <div class="add">
-        <p>Digite uma palavra: <input type="text" id="word"></p>
-        <a class="start">Salvar</a>
+        <p>Digite uma palavra: <input type="text" id="input-new-word"></p>
+        <button class="start" id="new-word">Salvar</button>
     </div>
     <div>
-      <canvas id="forca" height="300" width="300"></canvas>
+      <canvas id="forca" height="220" width="300"></canvas>
     </div>
-  
+    <div>
+      <div id="palavra-secreta"></div>
+      <div class="letras-incorretas"></div>
+    </div>
   </main>
   <script src="canvas.js"></script>
   <script src="main.js"></script>
