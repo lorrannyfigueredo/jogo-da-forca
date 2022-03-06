@@ -1,70 +1,80 @@
 function desenhaTabuleiro() {
-	//defineInputLetras();
   var tela = document.querySelector("canvas");
 	var pincel = tela.getContext('2d') 
+	pincel.lineWidth = 3;
 
-	pincel.fillStyle = "#F4A460";
-	pincel.fillRect(150, 40, 30, 300);
-	pincel.fillRect(180, 60, 200, 30);
-  
-	pincel.fillStyle = "#CD853F";
-	pincel.fillRect(130, 340, 300, 10);
-	pincel.fillRect(340, 90, 5, 40);
+	pincel.strokeStyle = '#0A3871'
+	pincel.beginPath();
+	pincel.moveTo(0, 200);
+	pincel.lineTo(250, 200);
+	pincel.lineTo(75, 200);
+	pincel.lineTo(75, 5);
+	pincel.lineTo(200, 5);
+	pincel.lineTo(200, 40);
+	pincel.stroke();
 }
 
 function desenhaCabeça() {
 	var tela = document.querySelector("canvas");
 	var pincel = tela.getContext('2d')
-	pincel.fillStyle = "black";
+	pincel.lineWidth = 3;
+
 	pincel.beginPath();
-	pincel.arc(345, 150, 20, 0, 2 * 3.14);
-	pincel.fill();
-}	
+	pincel.arc(200, 50, 10, 0, 2 * 3.14);
+	pincel.stroke();
+}
 
 function desenhaCorpo() {
 	var tela = document.querySelector("canvas");
 	var pincel = tela.getContext('2d')
-	pincel.fillStyle = "black";
-	pincel.fillRect(340, 168, 10, 80);
+	pincel.lineWidth = 3;
+
+	pincel.beginPath();
+	pincel.moveTo(200, 60);
+	pincel.lineTo(200, 110);
+	pincel.stroke();
 }
 
 function desenhaBraçoDireito() {
 	var tela = document.querySelector("canvas");
 	var pincel = tela.getContext('2d')
-	pincel.fillStyle = "black";
+	pincel.lineWidth = 3;
+	
 	pincel.beginPath();
-	pincel.moveTo(341, 180);
-	pincel.lineTo(300, 210);
-	pincel.lineWidth = 5;
+	pincel.moveTo(200, 70);
+	pincel.lineTo(180, 90);
 	pincel.stroke();
 }
 
 function desenhaBraçoEsquerdo() {
 	var tela = document.querySelector("canvas");
 	var pincel = tela.getContext('2d')
-	pincel.fillStyle = "black";
+	pincel.lineWidth = 3;
+
 	pincel.beginPath();
-	pincel.moveTo(349, 180);
-	pincel.lineTo(391, 210);
+	pincel.moveTo(200, 70);
+	pincel.lineTo(220, 90);
 	pincel.stroke();
 }
 
 function desenhaPernaDireita() {
 	var tela = document.querySelector("canvas");
 	var pincel = tela.getContext('2d')
-	pincel.fillStyle = "black";
+	pincel.lineWidth = 3;
+	
 	pincel.beginPath();
-	pincel.moveTo(341, 242);
-	pincel.lineTo(300, 290);
+	pincel.moveTo(200, 110);
+	pincel.lineTo(180, 135);
 	pincel.stroke();
 }
 
 function desenhaPernaEsquerda() {
 	var tela = document.querySelector("canvas");
 	var pincel = tela.getContext('2d')
-	pincel.fillStyle = "black";
+	pincel.lineWidth = 3;
+
 	pincel.beginPath();
-	pincel.moveTo(349, 242);
-	pincel.lineTo(391, 290);
+	pincel.moveTo(200, 110);
+	pincel.lineTo(220, 135);
 	pincel.stroke();
 }

@@ -9,18 +9,21 @@
   <title>Jogo da Forca</title>
 </head>
 <body>
-  <div class="logo">
-    <img src="https://www.alura.com.br/assets/img/alura-logo.1636535197.svg" alt="logo" class="alura">
-    <img src="https://www.alura.com.br/assets/img/oracle-one/oracle.1636535198.svg" alt="logo" class="one">
-  </div>
-  <div>
-    <div class="btn">
-      <button><a class="start" href="game.html">
-        Começar a jogar</a></button>
-      <button><a class="start" id="pag-add" href="add.html">Adicionar nova palavra</a></button>
-      <script src="main.js"></script>
-      <script src="canvas.js"></script>
+  <main>
+    <div class="logo">
+      <img src="https://www.alura.com.br/assets/img/alura-logo.1636535197.svg" alt="logo" class="alura">
+      <img src="https://www.alura.com.br/assets/img/oracle-one/oracle.1636535198.svg" alt="logo" class="one">
     </div>
-  </div>
+    <div class="add">
+        <p>Digite uma palavra: <input type="text" id="word"></p>
+        <a class="start">Salvar</a>
+    </div>
+    <div>
+      <canvas id="forca" height="300" width="300"></canvas>
+    </div>
+  
+  </main>
+  <script src="canvas.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
