@@ -5,6 +5,7 @@ let letrasDaPalavra;
 let adicionarPalavra = document.getElementById('new-word');
 let listaDinamica = [];
 let erros = 6;
+let letrasErradas = [];
 
 desenhaTabuleiro();
 
@@ -50,7 +51,6 @@ function mostrarPalavra() {
 	}
 }
 
-
 function mostrarPalavra() {
   
 	const palavraTela = document.getElementById("palavra-secreta");
@@ -82,28 +82,30 @@ function letraEscolhida(event){
 
 function comparaLetra(letra){
 	var letraErrada = document.querySelector(".letras-incorretas");
-	var posicaoLetra = letrasDaPalavra.indexOf(letra)
+	var posicaoLetra = letrasDaPalavra.indexOf(letra);
 	
-		if(posicaoLetra < 0){
-			erros--
-			letraErrada.innerHTML = letraErrada.innerHTML + "<div class='letras-incorretas'>" + letra + "</div>"; 
-		desenhaForca();
-		if(erros == 0) {
-			vocePerdeu();
-		}
+  if(posicaoLetra < 0){
+
+    erros--
+    letraErrada.innerHTML = letraErrada.innerHTML + "<div class='letras-incorretas'>" + letra + "</div>"; 
+    desenhaForca();
+    if(erros == 0) {
+      vocePerdeu();
+    }
 	} else {
 		for(i = 0; i < letrasDaPalavra.length; i++){
-			if(letrasDaPalavra[i] == letra){
+			if (letrasDaPalavra[i] == letra) {
 			listaDinamica[i] = letra;
 			}
 		}
 	}
+
 	var vitoria = true;
-		for(i = 0; i < letrasDaPalavra.length; i++){
-			if(letrasDaPalavra[i] != listaDinamica[i]){
-			vitoria= false
-		}
-	}
+  for (i = 0; i < letrasDaPalavra.length; i++) {
+    if (letrasDaPalavra[i] != listaDinamica[i]) {
+      vitoria= false
+    }
+  }
 
 	if(vitoria == true){
 		erros = 0;
