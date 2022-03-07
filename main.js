@@ -1,3 +1,4 @@
+let alfabeto = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 let palavras = ['ALURA', 'SISTEMA', 'FRONTEND', 'ONE', 'JAVA', 'BACKEND', 'APP']; 
 let palavraSorteada;
 let letrasDaPalavra;
@@ -22,6 +23,8 @@ adicionarPalavra.addEventListener("click", function(event){
 	}
   palavraAdicionada.value = '';
 });
+
+
 
 function sortearPalavra() {
 	var sorteio = parseInt(Math.random() * palavras.length);
@@ -67,15 +70,17 @@ document.addEventListener('keyup', letraEscolhida);
 
 function letraEscolhida(event){
   let letra = event.key.toUpperCase();
-  if(erros > 0) {
-  comparaLetra(letra);
-  console.log(letra)
-  mostrarPalavra(); 
+  for (let i = 0; i < alfabeto.length; i++) {
+    if (letra == alfabeto[i]) {
+      if(erros > 0) {
+      comparaLetra(letra);
+      mostrarPalavra(); 
+      }
+    }
   }
 }
 
 function comparaLetra(letra){
-  console.log(letra)
 	var letraErrada = document.querySelector(".letras-incorretas");
 	var posicaoLetra = letrasDaPalavra.indexOf(letra)
 	
@@ -84,7 +89,7 @@ function comparaLetra(letra){
 			letraErrada.innerHTML = letraErrada.innerHTML + "<div class='letras-incorretas'>" + letra + "</div>"; 
 		desenhaForca();
 		if(erros == 0) {
-			//vocePerdeu();
+			vocePerdeu();
 		}
 	} else {
 		for(i = 0; i < letrasDaPalavra.length; i++){
@@ -102,7 +107,7 @@ function comparaLetra(letra){
 
 	if(vitoria == true){
 		erros = 0;
-		//voceGanhou();
+		voceGanhou();
 	}
 }
 
@@ -129,4 +134,16 @@ function desenhaForca()	{
 		default:
 			desenhaTabuleiro();
 	}
+}
+
+function voceGanhou() {
+	let resultado = document.querySelector("#result");
+	resultado.innerHTML = "Parabéns, você venceu!";
+	resultado.style.color = "green";
+}
+
+function vocePerdeu() {
+	let resultado = document.querySelector("#result");
+	resultado.innerHTML = `Você perdeu, a palavra é ${palavraSorteada}!`;
+	resultado.style.color = "red";
 }
