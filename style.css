@@ -24,7 +24,7 @@ main {
   width: 150px;
   display: flex;
   justify-content: center;
-  font: normal 20px Arial, Helvetica, sans-serif;
+  font: normal 16px Arial, Helvetica, sans-serif;
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 24px;
@@ -38,7 +38,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .start:hover { 
@@ -48,15 +48,16 @@ main {
 }
 
 p {  
-  font: normal 25px Arial, Helvetica, sans-serif;
+  font: normal 20px Arial, Helvetica, sans-serif;
   color: #0A3871;
+  text-align: center;
 }
 
 #input-new-word {
   border-radius: 10px;
-  height: 20px;
+  height: 17px;
   width: 180px;
-  font: normal 20px Arial, Helvetica, sans-serif;
+  font: normal 15px Arial, Helvetica, sans-serif;
   color: #0A3871;
   text-align: center;
 }
@@ -84,4 +85,24 @@ p {
 #result {
   margin: 2px;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.teclado {
+  width: 400px;
+  text-align: center;
+}
+
+#teclas {
+  color: white;
+  background-color: #0A3871;
+  text-align: center;
+  border: none;
+  height: 25px;
+  width: 25px;
+  margin: 7px 2px;
+  border-radius: 5px;
+}
+
+#teclas:after {
+  background: none;
 }
