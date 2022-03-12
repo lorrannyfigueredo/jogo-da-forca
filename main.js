@@ -12,16 +12,18 @@ sortearPalavra();
 desenhaTeclado();
 
 function desenhaTeclado() {
-	let teclado = document.querySelector('.teclado');
-	
 	for (let i = 0; i < alfabeto.length; i++) {
+		let teclado = document.querySelector('.teclado');
 		let teclas = document.createElement('button');
 		teclas.id = 'teclas';
-		teclas.onclick = function() {letraEscolhida(alfabeto[i])};
+		teclas.class = 'tecla' + alfabeto[i];
+		console.log(teclas.class);
+		teclas.addEventListener('click', function() {letraEscolhida(alfabeto[i])});
 		teclas.innerHTML = alfabeto[i];
 		teclado.appendChild(teclas);
 	}
 }
+
 adicionarPalavra.addEventListener("click", function(event){
 	event.preventDefault();
 	var palavraAdicionada = document.getElementById('input-new-word');
@@ -31,7 +33,6 @@ adicionarPalavra.addEventListener("click", function(event){
 		alert("Por favor, adicione uma palavra válida!")
 	} else {
 		alert(`A palavra ${palavraNova} foi adicionada com sucesso!`);
-    console.log(palavras)
 	}
   palavraAdicionada.value = '';
 });
@@ -48,49 +49,40 @@ function mostrarPalavra() {
 	palavraTela.innerHTML = '';
 	
 	for(i = 0; i < letrasDaPalavra.length; i++) {
-			if(listaDinamica[i] == undefined){
-				listaDinamica[i] = '&nbsp';
-        console.log(listaDinamica[i])
-        palavraTela.innerHTML = `${palavraTela.innerHTML}<div class='layout-letras'>${listaDinamica[i]}</div>`;
-      } else {
-				palavraTela.innerHTML = `${palavraTela.innerHTML} <div class='layout-letras'> ${listaDinamica[i]} </div>`;
-			}
+		if(listaDinamica[i] == undefined){
+			listaDinamica[i] = '&nbsp';
+			palavraTela.innerHTML = `${palavraTela.innerHTML}<div class='layout-letras'>${listaDinamica[i]}</div>`;
+		} else {
+			palavraTela.innerHTML = `${palavraTela.innerHTML} <div class='layout-letras'> ${listaDinamica[i]} </div>`;
 		}
 	}
+}
 
-	function mostrarPalavra() {
-  
-	const palavraTela = document.getElementById("palavra-secreta");
-	palavraTela.innerHTML = "";
+document.addEventListener('keyup', letraEscolhida);
 	
-	for(i = 0; i < letrasDaPalavra.length; i++) {
-			if(listaDinamica[i] == undefined){
-				listaDinamica[i] = "&nbsp";
-			  palavraTela.innerHTML = palavraTela.innerHTML + "<div class='layout-letras'>" + listaDinamica[i] + "</ div>"
-		  } else{
-        palavraTela.innerHTML = palavraTela.innerHTML + "<div class='layout-letras'>" + listaDinamica[i] + "</div>"
-			}
-		}
-	}
+function letraEscolhida(letra){
 
-	document.addEventListener('keyup', letraEscolhida);
-	
-function letraEscolhida(event){
-
-	if (typeof event == 'string') {
-
-	} else if (typeof event == 'object') {
-		let letra = event.key.toUpperCase();
+	if (typeof letra == 'string' && erros > 0) {
+		let cor = document.querySelectorAll(".tecla" + alfabeto[i]);
+		console.log(cor);
+		comparaLetra(letra);
+		mostrarPalavra();
+	} else if (typeof letra == 'object') {
+		let evento = letra.key.toUpperCase();
 		for (let i = 0; i < alfabeto.length; i++) {
-			if (letra == alfabeto[i]) {
-				if(erros > 0) {
-				comparaLetra(letra);
-				mostrarPalavra(); 
-				}
+			if (evento == alfabeto[i] && erros > 0) {
+				comparaLetra(evento);
+				mostrarPalavra();
 			}
 		}
 	}
 }
+
+/* function mudarStyle(x){
+	console.log(x);
+	document.querySelector().style.background = "black";
+	document.querySelector(tecla).style.color = "black";
+} */
 
 function comparaLetra(letra){
 	var letraErrada = document.querySelector(".letras-incorretas");
@@ -112,7 +104,7 @@ function comparaLetra(letra){
 		}
 	}
 
-	var vitoria = true;
+	let vitoria = true;
   for (i = 0; i < letrasDaPalavra.length; i++) {
     if (letrasDaPalavra[i] != listaDinamica[i]) {
       vitoria= false
