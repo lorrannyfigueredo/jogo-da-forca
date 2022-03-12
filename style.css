@@ -87,12 +87,12 @@ p {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.teclado {
+#teclado {
   width: 400px;
   text-align: center;
 }
 
-#teclas {
+#teclado button {
   color: white;
   background-color: #0A3871;
   text-align: center;

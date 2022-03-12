@@ -13,11 +13,10 @@ desenhaTeclado();
 
 function desenhaTeclado() {
 	for (let i = 0; i < alfabeto.length; i++) {
-		let teclado = document.querySelector('.teclado');
+		let teclado = document.querySelector('#teclado');
 		let teclas = document.createElement('button');
-		teclas.id = 'teclas';
-		teclas.class = 'tecla' + alfabeto[i];
-		console.log(teclas.class);
+		teclas.id = 'tecla' + alfabeto[i];
+		console.log(teclas.id);
 		teclas.addEventListener('click', function() {letraEscolhida(alfabeto[i])});
 		teclas.innerHTML = alfabeto[i];
 		teclado.appendChild(teclas);
@@ -26,8 +25,8 @@ function desenhaTeclado() {
 
 adicionarPalavra.addEventListener("click", function(event){
 	event.preventDefault();
-	var palavraAdicionada = document.getElementById('input-new-word');
-	var palavraNova = palavraAdicionada.value;
+	let palavraAdicionada = document.getElementById('input-new-word');
+	let palavraNova = palavraAdicionada.value;
 	palavras.push(palavraNova);
 	if(palavraNova == 0){
 		alert("Por favor, adicione uma palavra válida!")
@@ -61,12 +60,11 @@ function mostrarPalavra() {
 document.addEventListener('keyup', letraEscolhida);
 	
 function letraEscolhida(letra){
-
 	if (typeof letra == 'string' && erros > 0) {
-		let cor = document.querySelectorAll(".tecla" + alfabeto[i]);
-		console.log(cor);
+		mudarStyle("tecla" + letra) ;
 		comparaLetra(letra);
 		mostrarPalavra();
+		
 	} else if (typeof letra == 'object') {
 		let evento = letra.key.toUpperCase();
 		for (let i = 0; i < alfabeto.length; i++) {
@@ -78,11 +76,10 @@ function letraEscolhida(letra){
 	}
 }
 
-/* function mudarStyle(x){
-	console.log(x);
-	document.querySelector().style.background = "black";
-	document.querySelector(tecla).style.color = "black";
-} */
+function mudarStyle(tecla){
+	document.getElementById(tecla).style.color = '#e5e5e5';
+	document.getElementById(tecla).style.background = '#e5e5e5';
+}
 
 function comparaLetra(letra){
 	var letraErrada = document.querySelector(".letras-incorretas");
