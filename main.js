@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	let listaDinamica = [];
 	let erros = 6;
 	let letrasErradas = [];
+	var letraErrada = document.querySelector(".letras-incorretas");
+	const palavraTela = document.getElementById('palavra-secreta');
 
 	desenhaTabuleiro();
 	sortearPalavra();
@@ -23,8 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	}
 
-	adicionarPalavra.addEventListener("click", function(event){
-		event.preventDefault();
+	adicionarPalavra.addEventListener("click", function(){
 		let palavraAdicionada = document.getElementById('input-new-word');
 		let palavraNova = palavraAdicionada.value;
 		palavras.push(palavraNova);
@@ -32,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			alert("Por favor, adicione uma palavra válida!")
 		} else {
 			alert(`A palavra ${palavraNova} foi adicionada com sucesso!`);
+			sortearPalavra();
 		}
 		palavraAdicionada.value = '';
 	});
@@ -40,11 +42,16 @@ document.addEventListener('DOMContentLoaded', () => {
 		var sorteio = parseInt(Math.random() * palavras.length);
 		palavraSorteada = palavras[sorteio];
 		letrasDaPalavra = palavraSorteada.split('');	
+		letraErrada.innerHTML = ''
+		
+		for(i = 0; i < letrasDaPalavra.length; i++) {
+			listaDinamica[i] = '&nbsp';
+			palavraTela.innerHTML = ``;
+		}
 		mostrarPalavra();
 	}
 
 	function mostrarPalavra() {
-		const palavraTela = document.getElementById('palavra-secreta');
 		palavraTela.innerHTML = '';
 		
 		for(i = 0; i < letrasDaPalavra.length; i++) {
@@ -82,7 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	function comparaLetra(letra){
-		var letraErrada = document.querySelector(".letras-incorretas");
 		var posicaoLetra = letrasDaPalavra.indexOf(letra);
 		
 		if(posicaoLetra < 0 && letrasErradas.indexOf(letra) == -1){
@@ -153,6 +159,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	let JogarNovamente = document.querySelector("#reiniciar");
 		JogarNovamente.addEventListener("click", function(){
-		location.reload();
+		sortearPalavra();
 	});
 });
