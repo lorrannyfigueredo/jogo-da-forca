@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			let teclado = document.querySelector('#teclado');
 			let teclas = document.createElement('button');
 			teclas.id = 'tecla' + alfabeto[i];
-			console.log(teclas.id);
 			teclas.addEventListener('click', function() {letraEscolhida(alfabeto[i])});
 			teclas.innerHTML = alfabeto[i];
 			teclado.appendChild(teclas);
