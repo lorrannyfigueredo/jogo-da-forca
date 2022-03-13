@@ -20,12 +20,12 @@ main {
   width: 150px;
 }
 
-.start {
-  width: 150px;
+.btn {
+  width: auto;
   display: flex;
   justify-content: center;
   font: normal 16px Arial, Helvetica, sans-serif;
-  padding: 10px;
+  padding: 7px 20px;
   margin-bottom: 10px;
   border-radius: 24px;
   text-decoration: none;
@@ -34,23 +34,23 @@ main {
   border: none;
 }
 
+.btn:hover { 
+  background: none;
+  color: #0A3871;
+  border: 1px solid #0A3871;
+}
+
 .add {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 5px;
-}
-
-.start:hover { 
-  background: none;
-  color: #0A3871;
-  border: 1px solid #0A3871;
 }
 
 p {  
   font: normal 20px Arial, Helvetica, sans-serif;
   color: #0A3871;
   text-align: center;
+  margin-bottom: 5px;
 }
 
 #input-new-word {
@@ -79,12 +79,13 @@ p {
 .letras-incorretas {
   display: inline-block;
   color: black;
-  margin: 5px;
+  margin: 3px;
 }
 
 #result {
   margin: 2px;
   font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
 }
 
 #teclado {
@@ -99,6 +100,28 @@ p {
   border: none;
   height: 25px;
   width: 25px;
-  margin: 7px 2px;
+  margin: 2px 2px;
   border-radius: 5px;
+}
+
+#teclado button:hover {
+  background-color: #3f5877;;
+}
+
+#reiniciar {
+  margin-top: 10px;
+}
+
+@media (max-width: 380px){
+  #teclado {
+    width: auto;
+  }
+
+  .alura {
+    width: 60px;
+  }
+
+  .one {
+    width: 120px;
+  }
 }
